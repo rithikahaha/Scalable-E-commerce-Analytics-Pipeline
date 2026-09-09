@@ -1,0 +1,20 @@
+OLIST E-COMMERCE ML MODELS — SUMMARY REPORT
+============================================================
+
+Model 1: Delivery Delay Prediction (Random Forest Classifier)
+  Accuracy:  0.7820
+  ROC-AUC:   0.7371
+  Precision: 0.1945
+  Recall:    0.5374
+  Top features: ['purchase_month', 'estimated_delivery_days', 'freight_value']
+
+Model 2: Review Score Prediction (Random Forest Regressor)
+  R^2 Score: 0.2163
+  RMSE:      1.1437 stars
+  MAE:       0.8798 stars
+  Top features: ['is_late', 'actual_delivery_days', 'estimated_delivery_days']
+
+Model 3: Customer Segmentation (K-Means, RFM)
+  k: 4
+  Silhouette Score: 0.4972
+  Segment sizes: {'At Risk': 50638, 'Lost': 37523, 'Loyal': 2772, 'Champions': 2416}

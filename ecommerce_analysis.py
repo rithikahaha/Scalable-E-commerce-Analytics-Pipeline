@@ -19,6 +19,9 @@ VIZ_DIR = Path('visualizations')
 VIZ_DIR.mkdir(exist_ok=True)
 
 
+DATA_DIR = Path('data/raw')
+
+
 def load_data():
     """Load all required datasets and perform initial validation"""
     data_files = {
@@ -27,12 +30,12 @@ def load_data():
         'customers': 'olist_customers_dataset.csv',
         'reviews': 'olist_order_reviews_dataset.csv'
     }
-    
+
     datasets = {}
     for key, filename in data_files.items():
-        datasets[key] = pd.read_csv(filename)
+        datasets[key] = pd.read_csv(DATA_DIR / filename)
         print(f"Loaded {filename}: {datasets[key].shape[0]:,} rows")
-    
+
     return datasets
 
 

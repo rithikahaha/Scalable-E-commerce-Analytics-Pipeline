@@ -1,0 +1,5 @@
+segment,customers,avg_recency,avg_frequency,avg_monetary
+At Risk,39549,315.87,1.0,130.41
+Champion,8291,143.42,1.22,342.27
+Lost,15902,423.96,1.0,65.33
+Loyal,32353,226.32,1.04,217.82

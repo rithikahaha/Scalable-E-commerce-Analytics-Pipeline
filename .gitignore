@@ -1,5 +1,6 @@
-# Data files (too large for GitHub)
-*.csv
+# Raw source data (too large for GitHub - fetch via Kaggle, see README)
+data/raw/*.csv
+/olist_*.csv
 
 # Python artifacts
 __pycache__/
@@ -26,10 +27,7 @@ wheels/
 .installed.cfg
 *.egg
 
-# Generated visualizations
-*.png
-*.jpg
-*.jpeg
+# Generated chart images are committed deliverables (visualizations/, ml_models/) -- not ignored
 *.pdf
 
 # IDE files
