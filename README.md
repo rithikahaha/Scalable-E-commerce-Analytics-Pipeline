@@ -6,7 +6,7 @@
 
 ---
 
-## 📊 Project Overview
+## Project Overview
 
 | Metric | Value |
 |---|---|
@@ -20,7 +20,7 @@
 
 ---
 
-## 🎯 Business Impact & Strategy
+## Business Impact & Strategy
 This project transitions from local data processing to a **Cloud-Native Architecture**, simulating the scalability required in high-volume retail environments:
 
 * **Retention Engineering:** Created a **Longitudinal Cohort Matrix** to identify exactly when customers "drop off," providing a quantitative baseline for automated re-engagement.
@@ -29,7 +29,7 @@ This project transitions from local data processing to a **Cloud-Native Architec
 
 ---
 
-## 📁 Project Structure
+## Project Structure
 
 ```
 Scalable-E-commerce-Analytics-Pipeline/
@@ -51,7 +51,7 @@ Scalable-E-commerce-Analytics-Pipeline/
 
 ---
 
-## 🚀 Quick Start
+## Quick Start
 
 ### Local Workflow (Python)
 1. **Clone the repository**
@@ -75,7 +75,7 @@ Upload `raw_data/` to **S3** → run the **Glue Crawler** to populate the Data C
 
 ---
 
-## ☁️ CI/CD Pipeline
+## CI/CD Pipeline
 
 This project includes an automated CI pipeline using **GitHub Actions** that runs on every push to `main`.
 
@@ -88,7 +88,7 @@ This project includes an automated CI pipeline using **GitHub Actions** that run
 
 ---
 
-## 🛠️ Tech Used
+## Tech Used
 
 | Category | Tools |
 |---|---|
@@ -101,7 +101,7 @@ This project includes an automated CI pipeline using **GitHub Actions** that run
 
 ---
 
-## ⚙️ Technical Implementation
+## Technical Implementation
 
 **1. Cloud Data Engineering (AWS - Mumbai Region)**
 * **Storage:** Established a centralized landing zone for 8 datasets (Orders, Payments, Customers, Reviews, etc.) ensuring 99.999999999% durability.
@@ -116,7 +116,7 @@ Full methodology and per-analysis breakdown: **[docs/PROJECT_SUMMARY.md](docs/PR
 
 ---
 
-## 📈 Key Insights
+## Key Insights
 
 | Insight | Finding |
 |---|---|
@@ -130,7 +130,7 @@ Details, methodology, and limitations: **[docs/PROJECT_SUMMARY.md](docs/PROJECT_
 
 ---
 
-## 🖼️ Deep-Dive Visual Analytics
+## Deep-Dive Visual Analytics
 
 **1. Cohort Retention Analysis**
 Tracked customers by their first purchase month to see exactly where the drop-off happens in Month 2, 3, and beyond.
@@ -162,26 +162,26 @@ The final output of the pipeline, labeling customers as **Champions, Loyal, At R
 
 ---
 
-## 📚 Documentation
+## Documentation
 
 - **[docs/PROJECT_SUMMARY.md](docs/PROJECT_SUMMARY.md)** — dataset details, per-analysis methodology, key findings, and known limitations
 
 ---
 
-## 💡 What I Learned (Key Takeaways)
+## What I Learned (Key Takeaways)
 * **The Power of Cohorts:** Cohort analysis is significantly more useful than overall retention rates because it reveals which months produced the "stickiest" customers.
 * **The Pareto Principle:** Confirmed that a small group of VIP/Champion customers contributes a disproportionate amount of total revenue.
 * **RFM > Total Spend:** Scoring customers on **Recency** is eye-opening; a customer who bought recently for a small amount is often more valuable than someone who spent a lot two years ago.
 
 ---
 
-## 🗺️ Future Roadmap
+## Future Roadmap
 * **Automated ETL:** Use **AWS Lambda** triggers to run the Glue Crawler automatically when new data lands in S3.
 * **Data Quality Gates:** Implement **AWS Glue Data Quality** to catch "dirty" data before it reaches the analytics layer.
 * **Predictive ML:** Build a churn prediction model using **Amazon SageMaker** based on existing RFM segments.
 
 ---
 
-## 📧 Author
+## Author
 **Rithika Harikrishna**
 [LinkedIn](https://linkedin.com/in/rithika-harikrishna) · [GitHub](https://github.com/rithikahaha)
