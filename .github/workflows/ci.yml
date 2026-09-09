@@ -46,7 +46,7 @@ jobs:
           # Check 2: Validate core analytical functions exist in main script
           import ast, os
 
-          script_path = "analytics_pipeline.py"
+          script_path = "ecommerce_analysis.py"
           if os.path.exists(script_path):
               with open(script_path, "r") as f:
                   tree = ast.parse(f.read())
