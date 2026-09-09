@@ -14,6 +14,10 @@ from pathlib import Path
 sns.set_style("whitegrid")
 plt.rcParams['figure.dpi'] = 100
 
+# All generated charts are written here
+VIZ_DIR = Path('visualizations')
+VIZ_DIR.mkdir(exist_ok=True)
+
 
 def load_data():
     """Load all required datasets and perform initial validation"""
@@ -65,7 +69,7 @@ def analyze_revenue_trends(df):
     ax.grid(True, alpha=0.3)
     plt.xticks(rotation=45, ha='right')
     plt.tight_layout()
-    plt.savefig('monthly_revenue.png', dpi=300, bbox_inches='tight')
+    plt.savefig(VIZ_DIR / 'monthly_revenue.png', dpi=300, bbox_inches='tight')
     plt.show()
     
     return revenue_by_month
@@ -111,7 +115,7 @@ def segment_customers_by_value(df):
     axes[1].set_title('Customer Segmentation')
     
     plt.tight_layout()
-    plt.savefig('customer_segments.png', dpi=300, bbox_inches='tight')
+    plt.savefig(VIZ_DIR / 'customer_segments.png', dpi=300, bbox_inches='tight')
     plt.show()
     
     return clv
@@ -136,7 +140,7 @@ def analyze_payment_methods(df):
                 ha='center', va='bottom', fontweight='bold')
     
     plt.tight_layout()
-    plt.savefig('payment_methods.png', dpi=300, bbox_inches='tight')
+    plt.savefig(VIZ_DIR / 'payment_methods.png', dpi=300, bbox_inches='tight')
     plt.show()
 
 
@@ -174,7 +178,7 @@ def geographic_analysis(df):
     ax2.legend(loc='upper right')
     
     plt.tight_layout()
-    plt.savefig('geographic_analysis.png', dpi=300, bbox_inches='tight')
+    plt.savefig(VIZ_DIR / 'geographic_analysis.png', dpi=300, bbox_inches='tight')
     plt.show()
     
     return state_metrics
@@ -210,7 +214,7 @@ def satisfaction_vs_repeat_purchase(df):
     ax.set_title(f'Customer Satisfaction vs Repeat Purchases (r={correlation:.3f})')
     plt.colorbar(scatter, ax=ax, label='Order Count')
     plt.tight_layout()
-    plt.savefig('satisfaction_correlation.png', dpi=300, bbox_inches='tight')
+    plt.savefig(VIZ_DIR / 'satisfaction_correlation.png', dpi=300, bbox_inches='tight')
     plt.show()
 
 
@@ -263,7 +267,7 @@ def cohort_retention_analysis(df):
     ax.set_ylabel('Cohort (First Purchase Month)', fontsize=12)
     
     plt.tight_layout()
-    plt.savefig('cohort_retention.png', dpi=300, bbox_inches='tight')
+    plt.savefig(VIZ_DIR / 'cohort_retention.png', dpi=300, bbox_inches='tight')
     plt.show()
     
     print("\nRetention Matrix (first 6 cohorts, first 6 months):")
@@ -354,7 +358,7 @@ def rfm_analysis(df):
         axes[1].text(i, v + 10, f'{v:.0f}', ha='center', fontweight='bold')
 
     plt.tight_layout()
-    plt.savefig('rfm_segments.png', dpi=300, bbox_inches='tight')
+    plt.savefig(VIZ_DIR / 'rfm_segments.png', dpi=300, bbox_inches='tight')
     plt.show()
 
     return rfm
@@ -395,7 +399,7 @@ def main():
     rfm = rfm_analysis(df)
     
     print("\n[8/8] Analysis complete!")
-    print("\nGenerated visualizations:")
+    print(f"\nGenerated visualizations (in {VIZ_DIR}/):")
     print("  - monthly_revenue.png")
     print("  - customer_segments.png")
     print("  - payment_methods.png")
