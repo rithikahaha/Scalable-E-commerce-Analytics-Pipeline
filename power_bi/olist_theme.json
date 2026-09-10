@@ -1,0 +1,43 @@
+{
+  "name": "Olist E-Commerce Theme",
+  "dataColors": [
+    "#4C78A8",
+    "#F58518",
+    "#54A24B",
+    "#E45756",
+    "#72B7B2",
+    "#EECA3B",
+    "#B279A2",
+    "#9D755D"
+  ],
+  "background": "#FFFFFF",
+  "foreground": "#2C3E50",
+  "tableAccent": "#4C78A8",
+  "good": "#54A24B",
+  "neutral": "#EECA3B",
+  "bad": "#E45756",
+  "maximum": "#4C78A8",
+  "center": "#72B7B2",
+  "minimum": "#FFFFFF",
+  "null": "#B0B0B0",
+  "textClasses": {
+    "callout": {
+      "fontSize": 28,
+      "color": "#2C3E50",
+      "fontFace": "Segoe UI Semibold"
+    },
+    "title": {
+      "fontSize": 13,
+      "color": "#2C3E50",
+      "fontFace": "Segoe UI Semibold"
+    },
+    "header": {
+      "fontSize": 12,
+      "color": "#2C3E50"
+    },
+    "label": {
+      "fontSize": 10,
+      "color": "#5A6B7B"
+    }
+  }
+}

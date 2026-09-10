@@ -20,6 +20,7 @@ def load():
     items = pd.read_csv(DATA_DIR / 'olist_order_items_dataset.csv')
     products = pd.read_csv(DATA_DIR / 'olist_products_dataset.csv')
     translation = pd.read_csv(DATA_DIR / 'product_category_name_translation.csv')
+    sellers = pd.read_csv(DATA_DIR / 'olist_sellers_dataset.csv')
 
     orders['order_purchase_timestamp'] = pd.to_datetime(orders['order_purchase_timestamp'])
     orders['order_month'] = orders['order_purchase_timestamp'].dt.to_period('M').astype(str)
@@ -29,7 +30,7 @@ def load():
           .merge(customers, on='customer_id', how='inner')
           .merge(reviews[['order_id', 'review_score']], on='order_id', how='left'))
 
-    return df, orders, items, products, translation
+    return df, orders, items, products, translation, sellers, reviews
 
 
 def export_kpi_summary(df):
@@ -53,6 +54,7 @@ def export_monthly_revenue(df):
     monthly = (df.groupby('order_month')['payment_value']
                .sum().reset_index()
                .rename(columns={'payment_value': 'revenue'}))
+    monthly['revenue'] = monthly['revenue'].round(2)
     monthly.to_csv(OUT_DIR / 'monthly_revenue.csv', index=False)
     print(f"monthly_revenue.csv: {monthly.shape}")
 
@@ -64,8 +66,22 @@ def export_revenue_by_state(df):
                      orders=('order_id', 'nunique'))
                 .reset_index()
                 .sort_values('revenue', ascending=False))
+    by_state['revenue'] = by_state['revenue'].round(2)
     by_state.to_csv(OUT_DIR / 'revenue_by_state.csv', index=False)
     print(f"revenue_by_state.csv: {by_state.shape}")
+
+
+def export_revenue_by_city(df):
+    by_city = (df.groupby(['customer_city', 'customer_state'])
+               .agg(revenue=('payment_value', 'sum'),
+                    customers=('customer_unique_id', 'nunique'),
+                    orders=('order_id', 'nunique'))
+               .reset_index()
+               .sort_values('revenue', ascending=False)
+               .head(20))
+    by_city['revenue'] = by_city['revenue'].round(2)
+    by_city.to_csv(OUT_DIR / 'revenue_by_city.csv', index=False)
+    print(f"revenue_by_city.csv: {by_city.shape}")
 
 
 def export_payment_methods(df):
@@ -100,9 +116,28 @@ def export_top_categories(items, products, translation):
            .reset_index()
            .sort_values('revenue', ascending=False)
            .head(20))
+    top['revenue'] = top['revenue'].round(2)
     top['avg_price'] = top['avg_price'].round(2)
     top.to_csv(OUT_DIR / 'top_categories.csv', index=False)
     print(f"top_categories.csv: {top.shape}")
+
+
+def export_top_sellers(items, sellers, reviews):
+    item_reviews = items.merge(reviews[['order_id', 'review_score']], on='order_id', how='left')
+    seller_perf = (item_reviews
+                   .merge(sellers, on='seller_id', how='left')
+                   .groupby(['seller_id', 'seller_city', 'seller_state'])
+                   .agg(revenue=('price', 'sum'),
+                        orders=('order_id', 'nunique'),
+                        items_sold=('order_item_id', 'count'),
+                        avg_review_score=('review_score', 'mean'))
+                   .reset_index()
+                   .sort_values('revenue', ascending=False)
+                   .head(20))
+    seller_perf['revenue'] = seller_perf['revenue'].round(2)
+    seller_perf['avg_review_score'] = seller_perf['avg_review_score'].round(2)
+    seller_perf.to_csv(OUT_DIR / 'top_sellers.csv', index=False)
+    print(f"top_sellers.csv: {seller_perf.shape}")
 
 
 def export_delivery_performance(orders):
@@ -167,13 +202,15 @@ def export_rfm_segments(df):
 
 
 def main():
-    df, orders, items, products, translation = load()
+    df, orders, items, products, translation, sellers, reviews = load()
     export_kpi_summary(df)
     export_monthly_revenue(df)
     export_revenue_by_state(df)
+    export_revenue_by_city(df)
     export_payment_methods(df)
     export_order_status(orders)
     export_top_categories(items, products, translation)
+    export_top_sellers(items, sellers, reviews)
     export_delivery_performance(orders)
     export_rfm_segments(df)
     print(f"\nAll exports written to {OUT_DIR}/")
