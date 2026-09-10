@@ -4,6 +4,8 @@
 
 ![CI Status](https://github.com/rithikahaha/Scalable-E-commerce-Analytics-Pipeline/actions/workflows/ci.yml/badge.svg)
 
+**[Live Interactive Dashboard →](https://rithikahaha.github.io/Scalable-E-commerce-Analytics-Pipeline/dashboard/)**
+
 ---
 
 ## Project Overview
@@ -199,7 +201,7 @@ Full model outputs (ROC curve, feature importances, actual-vs-predicted): [`ml_m
 
 ### Dashboards
 
-**Interactive dashboard:** open [`dashboard/index.html`](dashboard/index.html) directly in a browser for a hoverable, explorable version of the KPIs and charts above.
+**Interactive dashboard:** **[live version](https://rithikahaha.github.io/Scalable-E-commerce-Analytics-Pipeline/dashboard/)**, or open [`dashboard/index.html`](dashboard/index.html) directly in a browser for the same hoverable, explorable KPIs and charts.
 
 **Power BI:** pre-built CSV exports and a full build guide live in [`power_bi/`](power_bi/) — see [docs/POWERBI_GUIDE.md](docs/POWERBI_GUIDE.md).
 
