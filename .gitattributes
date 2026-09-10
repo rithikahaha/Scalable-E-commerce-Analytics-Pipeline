@@ -1,0 +1,4 @@
+# dashboard/index.html embeds the full Plotly.js library inline so it
+# renders fully offline -- that's ~4.5MB of vendored JS, not authored
+# code, so exclude it from GitHub's language stats.
+dashboard/index.html linguist-generated=true
