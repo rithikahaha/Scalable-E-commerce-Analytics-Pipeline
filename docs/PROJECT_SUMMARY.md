@@ -66,8 +66,8 @@ The delivery model is deliberately trained with `class_weight='balanced'` rather
 
 ## Interactive Dashboard & Power BI
 
-- `dashboard.py` builds a self-contained interactive HTML dashboard at [`dashboard/index.html`](../dashboard/index.html) (Plotly — hoverable KPIs, revenue trend, state breakdown, payment mix). Open it directly in a browser, no server required.
-- `power_bi_exports.py` writes 8 pre-aggregated CSVs to [`power_bi/exports/`](../power_bi/exports/) for building an actual Power BI dashboard. See [`POWERBI_GUIDE.md`](POWERBI_GUIDE.md) for the walkthrough.
+- `dashboard.py` builds a self-contained interactive HTML dashboard at [`dashboard/index.html`](../dashboard/index.html) (Plotly — hoverable KPIs, revenue trend, state breakdown, payment mix). Open it directly in a browser, no server required. Also deployed live via GitHub Pages.
+- `power_bi_exports.py` writes 10 pre-aggregated CSVs to [`power_bi/exports/`](../power_bi/exports/), used to build the finished 5-page dashboard at [`power_bi/olist_dashboard.pbix`](../power_bi/olist_dashboard.pbix) (Executive Overview, Geography, Payments & Orders, Products & Sellers, Customer Segments), themed with [`power_bi/olist_theme.json`](../power_bi/olist_theme.json). See [`POWERBI_GUIDE.md`](POWERBI_GUIDE.md) to rebuild it.
 
 ## Key Findings
 

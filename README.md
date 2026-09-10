@@ -20,7 +20,7 @@
 | **Repeat Customer Rate** | 3.12% |
 | **On-Time Delivery Rate** | 91.89% |
 | **Analyses** | 7 statistical + 3 ML models |
-| **Dashboards** | 1 interactive (Plotly) + Power BI exports |
+| **Dashboards** | 1 interactive (Plotly) + 5-page Power BI dashboard |
 | **Dataset** | [Olist Brazilian E-Commerce](https://www.kaggle.com/datasets/olistbr/brazilian-ecommerce) |
 
 ---
@@ -50,8 +50,10 @@ Scalable-E-commerce-Analytics-Pipeline/
 ├── dashboard/
 │   └── index.html               # Interactive Plotly dashboard (open directly in a browser)
 ├── power_bi/
-│   ├── exports/                 # 8 CSVs ready to import into Power BI Desktop
-│   └── olist_dashboard.pbix     # (build this yourself — see docs/POWERBI_GUIDE.md)
+│   ├── exports/                 # 10 CSVs ready to import into Power BI Desktop
+│   ├── olist_theme.json         # Custom color theme matching the Plotly dashboard
+│   ├── olist_dashboard.pbix     # The finished 5-page Power BI dashboard
+│   └── images/                  # Dashboard page screenshots (used in this README)
 ├── docs/
 │   ├── PROJECT_SUMMARY.md       # Methodology deep-dive, verified metrics, findings
 │   └── POWERBI_GUIDE.md         # Step-by-step guide to building the Power BI dashboard
@@ -203,7 +205,27 @@ Full model outputs (ROC curve, feature importances, actual-vs-predicted): [`ml_m
 
 **Interactive dashboard:** **[live version](https://rithikahaha.github.io/Scalable-E-commerce-Analytics-Pipeline/dashboard/)**, or open [`dashboard/index.html`](dashboard/index.html) directly in a browser for the same hoverable, explorable KPIs and charts.
 
-**Power BI:** pre-built CSV exports and a full build guide live in [`power_bi/`](power_bi/) — see [docs/POWERBI_GUIDE.md](docs/POWERBI_GUIDE.md).
+**Power BI:** a finished 5-page dashboard at [`power_bi/olist_dashboard.pbix`](power_bi/olist_dashboard.pbix), built from the CSV exports and themed with [`power_bi/olist_theme.json`](power_bi/olist_theme.json). Rebuild it yourself with [docs/POWERBI_GUIDE.md](docs/POWERBI_GUIDE.md).
+
+#### Executive Overview
+KPIs at a glance, plus the monthly revenue trend from launch through peak.
+![Executive Overview](power_bi/images/executive_overview.png)
+
+#### Geography
+Revenue concentration by state, with a city-level breakdown alongside it.
+![Geography](power_bi/images/geography.png)
+
+#### Payments & Orders
+Payment method mix and order status distribution.
+![Payments and Orders](power_bi/images/payments_and_orders.png)
+
+#### Products & Sellers
+Top categories by revenue, price-vs-volume by category, and seller performance ranking.
+![Products and Sellers](power_bi/images/products_and_sellers.png)
+
+#### Customer Segments
+RFM-based segment sizes and their recency/frequency/monetary profiles.
+![Customer Segments](power_bi/images/customer_segments.png)
 
 ---
 
@@ -226,7 +248,6 @@ Full model outputs (ROC curve, feature importances, actual-vs-predicted): [`ml_m
 * **Automated ETL:** Use **AWS Lambda** triggers to run the Glue Crawler automatically when new data lands in S3.
 * **Data Quality Gates:** Implement **AWS Glue Data Quality** to catch "dirty" data before it reaches the analytics layer.
 * **First-Purchase-to-Second-Purchase Funnel:** Given how rare repeat purchases are, a natural next model is predicting which first-time buyers are likeliest to return — more actionable here than a churn model.
-* **Finish the Power BI Build:** The CSV exports and guide are ready; build and commit the actual `.pbix` (see [docs/POWERBI_GUIDE.md](docs/POWERBI_GUIDE.md)).
 
 ---
 
