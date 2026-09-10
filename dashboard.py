@@ -104,7 +104,10 @@ def build_dashboard(df, orders):
     )
 
     html_path = OUT_DIR / 'index.html'
-    fig.write_html(html_path, include_plotlyjs='cdn', full_html=True)
+    # Embed plotly.js fully (not 'cdn') so the file works fully offline --
+    # a double-clicked local file with no network access would otherwise
+    # render blank, since the chart divs stay empty until the CDN script loads.
+    fig.write_html(html_path, include_plotlyjs=True, full_html=True)
 
     # Inject a small stats strip under the title
     html = html_path.read_text(encoding='utf-8')
