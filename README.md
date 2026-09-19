@@ -10,7 +10,7 @@
 
 ## So what should the business do?
 
-Aim retention at turning first-time buyers into second-time buyers, because only 3.12% of customers ever order again and there is no gradual decline to slow. Fix delivery reliability first: whether an order arrives late is the strongest signal of a bad review, and satisfaction on its own does not predict who comes back.
+Only 3.12% of customers ever order a second time, so this is not a story of shoppers slowly drifting away: almost nobody comes back at all. Focus on getting first-time buyers to buy again, and fix late deliveries first, because a late order is the strongest sign of a bad review.
 
 ## Project Overview
 
