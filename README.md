@@ -10,7 +10,7 @@
 
 ## So what should the business do?
 
-Only 3.12% of customers ever order a second time, so this is not a story of shoppers slowly drifting away: almost nobody comes back at all. Focus on getting first-time buyers to buy again, and fix late deliveries first, because a late order is the strongest sign of a bad review.
+Only 3.12% of customers ever buy a second time. Focus on getting first-time buyers to return, and fix late deliveries first, since they are the strongest sign of a bad review.
 
 ## Project Overview
 
